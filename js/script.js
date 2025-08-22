@@ -7,9 +7,9 @@ const viewReposButton = document.querySelector(".view-repos");
 const filterInput = document.querySelector(".filter-repos");
 
 const gitUserInfo = async function () {
-const userInfo = await fetch (`https://api.github.com/users/${username}`);
-const data = await userInfo.json();
-displayUserInfo(data);
+    const userInfo = await fetch (`https://api.github.com/users/${username}`);
+    const data = await userInfo.json();
+    displayUserInfo(data);
 };
 
 gitUserInfo();
@@ -28,8 +28,8 @@ const displayUserInfo = function (data) {
      <p><strong>Number of public repos: </strong>${data.public_repos}</p>
     </div>
     `;
-overview.append(div);
-gitRepos(username);
+    overview.append(div);
+    gitRepos(username);
 };
 
 const gitRepos = async function (username) {
@@ -83,7 +83,7 @@ const displayRepoInfo = function (repoInfo, languages) {
     <p>Description: ${repoInfo.description}</p>
     <p>Default Branch: ${repoInfo.default_branch}</p>
     <p>Languages: ${languages.join(", ")}</p>
-    <a class="visit href="${repoInfo.html_url}" target="_blank" rel="noreferrer noopener">View Repo on GitHub!</a>
+    <a class="visit" href="${repoInfo.html_url}" target="_blank" rel="noreferrer noopener">View Repo on GitHub!</a>
 `;
 repoData.append(div);
 };
@@ -96,7 +96,7 @@ viewReposButton.addEventListener("click", function () {
 
 // // Dynamic search
 filterInput.addEventListener("input", function (e) {
-    const searchText = e.target.value;
+    const searchText = e.target.value;    
     const repos = document.querySelectorAll(".repo");
     const searchLowerText = searchText.toLowerCase();
 
