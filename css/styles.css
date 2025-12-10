@@ -59,6 +59,7 @@ h1 {
     border-radius: 10px;
     display: flex;
     flex-direction: column;
+    position: relative;
 }
 
 .circle {
@@ -70,6 +71,7 @@ h1 {
     align-self: center;
     margin-top: auto;
     margin-bottom: 8px;
+    position: relative;
 }
 
 .github-img {

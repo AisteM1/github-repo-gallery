@@ -34,8 +34,8 @@ const displayUserInfo = function (data) {
 
 const gitRepos = async function (username) {
     const fetchRepos = await fetch(`https://api.github.com/users/${username}/repos?sort=updated&per_page=100`);
-    const repoData = await fetchRepos.json();
-    displayRepos(repoData);
+    const repoArray = await fetchRepos.json();
+    displayRepos(repoArray);
 };
 
 const displayRepos = function (repos) {
@@ -79,7 +79,7 @@ const displayRepoInfo = function (repoInfo, languages) {
     allReposContainer.classList.add ("hide");
     const div = document.createElement("div");
     div.innerHTML = `
-    <h3>Name: ${repoInfo.name}<h3>
+    <h3>Name: ${repoInfo.name}</h3>
     <p>Description: ${repoInfo.description}</p>
     <p>Default Branch: ${repoInfo.default_branch}</p>
     <p>Languages: ${languages.join(", ")}</p>
